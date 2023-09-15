@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Handwritten Digit Recognizer</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Handwritten Digit Recognizer</h1>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <br>
+    <button id="classify_btn">Recognize Digit</button>
+    <button id="clear_btn">Clear</button>
+    <br>
+    <h2>Prediction:</h2>
+    <div id="prediction"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

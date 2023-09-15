@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+canvas {
+    border: 1px solid #000;
+    margin: 20px auto;
+    display: block;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+#result {
+    font-size: 24px;
+    margin-top: 20px;
+}
