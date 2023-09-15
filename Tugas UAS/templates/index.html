@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    body {
+      background: #EADBDD;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 32px;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      letter-spacing: 1px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      font-family: 'Arimo', sans-serif;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    input[type="number"],
+    select {
+      width: 100%;
+      margin-bottom: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      border: none;
+      outline: none;
+      padding: 10px;
+      font-family: 'Hind', sans-serif;
+      font-size: 14px;
+      color: #fff;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+      box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2),
+        0 1px 1px rgba(255, 255, 255, 0.2);
+      transition: box-shadow 0.5s ease;
+    }
+
+    input[type="number"]:focus,
+    select:focus {
+      box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4),
+        0 1px 1px rgba(255, 255, 255, 0.2);
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #4a77d4;
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-size: 16px;
+      color: #fff;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    p {
+      font-family: 'Arimo', sans-serif;
+      font-size: 14px;
+      color: #fff;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <h1>Churn Prediction</h1>
+    <form method="POST" action="/predict">
+        <label for="monthly_charges">Monthly Charges:</label>
+        <input type="text" id="monthly_charges" name="monthly_charges"><br><br>
+
+        <label for="paperless_billing">Paperless Billing:</label>
+        <select id="paperless_billing" name="paperless_billing">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="senior_citizen">Senior Citizen:</label>
+        <select id="senior_citizen" name="senior_citizen">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="payment_method">Payment Method:</label>
+        <select id="payment_method" name="payment_method">
+            <option value="0">Bank transfer (automatic)</option>
+            <option value="1">Credit card (automatic)</option>
+            <option value="2">Electronic check</option>
+            <option value="3">Mailed check</option>
+        </select><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
